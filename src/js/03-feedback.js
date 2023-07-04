@@ -2,7 +2,7 @@ import throttle from 'lodash.throttle';
 
 const formEl = document.querySelector('.feedback-form');
 const dataFromStorage = localStorage.getItem('feedback-form-state');
-const userData = {};
+let userData = {};
 
 if (dataFromStorage) {
   const parsedDataFromStorage = JSON.parse(dataFromStorage);
@@ -36,9 +36,9 @@ const handleSubmit = event => {
     alert('Please fill in all the fields!');
   } else {
     console.log(userData);
-    localStorage.clear();
+    userData = {};
+    localStorage.removeItem('feedback-form-state');
     event.currentTarget.reset();
-    formEl.lastElementChild.disabled = true;
   }
 };
 

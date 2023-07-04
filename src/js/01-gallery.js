@@ -28,12 +28,3 @@ var lightbox = new SimpleLightbox('.gallery__item a', {
   captionDelay: 250,
 });
 
-const selectedImage = evt => {
-  evt.preventDefault();
-  const { target } = evt;
-  if (!target.classList.contains('gallery__image')) {
-    return;
-  }
-};
-
-galleryEl.addEventListener('click', selectedImage);
